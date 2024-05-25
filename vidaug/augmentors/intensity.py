@@ -129,7 +129,7 @@ class Pepper(object):
 
         data_final = []
         for i in range(len(clip)):
-            img = clip[i].astype(np.float)
+            img = clip[i].astype(float)
             img_shape = img.shape
             noise = np.random.randint(self.ratio, size=img_shape)
             img = np.where(noise == 0, 0, img)
