@@ -37,7 +37,8 @@ class GaussianBlur(object):
     def __call__(self, clip):
 
         if isinstance(clip[0], np.ndarray):
-            return [scipy.ndimage.gaussian_filter(img, sigma=self.sigma, order=0) for img in clip]
+            # return [scipy.ndimage.gaussian_filter(img, sigma=self.sigma, order=0) for img in clip]
+            return [cv2.GaussianBlur(img, (0, 0), sigmaX=self.sigma) for img in clip]
         elif isinstance(clip[0], PIL.Image.Image):
             return [img.filter(PIL.ImageFilter.GaussianBlur(radius=self.sigma)) for img in clip]
         else:
