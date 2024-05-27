@@ -113,7 +113,7 @@ class InverseOrder(object):
     def __call__(self, clip):
         for i in range(len(clip)):
             nb_images = len(clip)
-            return [clip[img] for img in reversed(range(1, nb_images))]
+            return [clip[img] for img in reversed(range(nb_images))]
 
 
 class Downsample(object):
